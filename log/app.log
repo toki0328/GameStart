@@ -211,3 +211,13 @@ player launch: result=0
 player launch: result=0
 
 2025-01-22 18:12:03,873 - INFO - Initialized Log
+2025-01-23 03:06:49,065 - INFO - Initialized Log
+2025-01-23 03:13:33,335 - INFO - Initialized Log
+2025-01-23 03:14:06,901 - INFO - current select player index: 0
+player launch: result=0
+
+2025-01-23 03:15:12,602 - INFO - current select player index: 0
+
+2025-01-23 03:15:14,358 - INFO - current select player index: 0
+player launch: result=0
+

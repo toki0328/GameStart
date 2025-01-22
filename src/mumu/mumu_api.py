@@ -20,7 +20,12 @@ class MumuApi:
             json.dump(config, open(self.m_ConfigPath, "w", encoding="utf-8"), indent=4)
             return self.autoFindMumuManagerPath()
         else:
-            return config['mumuManagerPath']
+            if os.path.exists(config['mumuManagerPath']):
+                return config['mumuManagerPath']
+            else:
+                config['mumuManagerPath'] = self.autoFindMumuManagerPath()
+                json.dump(config, open(self.m_ConfigPath, "w", encoding="utf-8"), indent=4)
+                return self.autoFindMumuManagerPath()
 
 
     def startMumu(self):

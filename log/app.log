@@ -1,0 +1,213 @@
+2025-01-08 18:21:42,341 - INFO - Initialized Log
+2025-01-08 18:22:13,808 - INFO - Start Monitor
+2025-01-08 18:22:25,571 - INFO - View Monitor State: 
+2025-01-08 18:22:25,571 - INFO - current select player index: 0
+check player state: state=start_finished
+
+2025-01-08 18:22:38,095 - INFO - Close Monitor
+2025-01-08 19:26:04,619 - INFO - Initialized Log
+2025-01-08 19:27:23,563 - INFO - Initialized Log
+2025-01-08 19:27:26,998 - INFO - Start Monitor
+2025-01-08 19:27:34,784 - INFO - View Monitor State: 
+2025-01-08 19:27:34,784 - INFO - current select player index: 0
+check player state: state=start_finished
+
+2025-01-08 19:27:43,203 - INFO - View Monitor State: 
+2025-01-08 19:27:43,203 - INFO - current select player index: 0
+check player state: state=start_finished
+
+2025-01-08 19:27:45,596 - INFO - View Monitor State: 
+2025-01-08 19:27:45,597 - INFO - current select player index: 0
+check player state: state=start_finished
+
+2025-01-08 19:27:49,914 - INFO - Close Monitor
+2025-01-08 22:44:46,592 - INFO - Start Monitor
+2025-01-21 04:11:36,974 - INFO - MainWindow init
+2025-01-21 04:11:36,974 - INFO - Initialized Log
+2025-01-21 04:11:47,829 - INFO - current select player index: 0
+player not running
+check player state fail: result=-2
+
+2025-01-21 04:27:26,296 - INFO - MainWindow init
+2025-01-21 04:27:26,297 - INFO - Initialized Log
+2025-01-21 04:27:56,144 - INFO - MainWindow init
+2025-01-21 04:27:56,144 - INFO - Initialized Log
+2025-01-21 04:28:05,454 - INFO - MainWindow init
+2025-01-21 04:28:05,455 - INFO - Initialized Log
+2025-01-21 04:28:41,503 - INFO - MainWindow init
+2025-01-21 04:28:41,503 - INFO - Initialized Log
+2025-01-21 04:30:14,654 - INFO - MainWindow init
+2025-01-21 04:30:14,654 - INFO - Initialized Log
+2025-01-21 04:31:42,646 - INFO - MainWindow init
+2025-01-21 04:31:42,646 - INFO - Initialized Log
+2025-01-21 04:41:12,885 - INFO - MainWindow init
+2025-01-21 04:41:12,885 - INFO - Initialized Log
+2025-01-21 04:41:38,910 - INFO - MainWindow init
+2025-01-21 04:41:38,911 - INFO - Initialized Log
+2025-01-21 04:43:30,248 - INFO - MainWindow init
+2025-01-21 04:43:30,249 - INFO - Initialized Log
+2025-01-21 04:44:37,257 - INFO - MainWindow init
+2025-01-21 04:44:37,258 - INFO - Initialized Log
+2025-01-21 04:48:30,650 - INFO - MainWindow init
+2025-01-21 04:48:30,651 - INFO - Initialized Log
+2025-01-21 04:48:48,771 - INFO - MainWindow init
+2025-01-21 04:48:48,772 - INFO - Initialized Log
+2025-01-21 04:57:48,972 - INFO - MainWindow init
+2025-01-21 04:57:48,972 - INFO - Initialized Log
+2025-01-21 04:58:17,894 - INFO - MainWindow init
+2025-01-21 04:58:17,895 - INFO - Initialized Log
+2025-01-21 04:59:55,710 - INFO - MainWindow init
+2025-01-21 04:59:55,711 - INFO - Initialized Log
+2025-01-21 05:01:18,816 - INFO - MainWindow init
+2025-01-21 05:01:18,816 - INFO - Initialized Log
+2025-01-21 05:01:45,662 - INFO - MainWindow init
+2025-01-21 05:01:45,662 - INFO - Initialized Log
+2025-01-21 05:02:09,910 - INFO - MainWindow init
+2025-01-21 05:02:09,910 - INFO - Initialized Log
+2025-01-21 05:02:11,719 - INFO - current select player index: 0
+player launch: result=0
+
+2025-01-21 05:02:22,995 - INFO - current select player index: 0
+check player state: state=start_finished
+
+2025-01-21 05:02:26,152 - INFO - current select player index: 0
+
+2025-01-21 05:31:47,588 - INFO - MainWindow init
+2025-01-21 05:31:47,588 - INFO - Initialized Log
+2025-01-21 05:32:50,758 - INFO - MainWindow init
+2025-01-21 05:32:50,758 - INFO - Initialized Log
+2025-01-21 05:34:56,347 - INFO - MainWindow init
+2025-01-21 05:34:56,347 - INFO - Initialized Log
+2025-01-21 05:35:53,401 - INFO - MainWindow init
+2025-01-21 05:35:53,402 - INFO - Initialized Log
+2025-01-21 16:35:51,404 - INFO - current select player index: 0
+player not running
+check player state fail: result=-2
+
+2025-01-21 16:39:10,119 - INFO - MainWindow init
+2025-01-21 16:39:10,120 - INFO - Initialized Log
+2025-01-21 16:40:14,473 - INFO - MainWindow init
+2025-01-21 16:40:14,474 - INFO - Initialized Log
+2025-01-21 16:40:19,200 - INFO - current select player index: 0
+player not running
+check player state fail: result=-2
+
+2025-01-21 16:56:07,136 - INFO - MainWindow init
+2025-01-21 16:56:07,136 - INFO - Initialized Log
+2025-01-21 16:58:05,510 - INFO - MainWindow init
+2025-01-21 16:58:05,511 - INFO - Initialized Log
+2025-01-21 17:01:07,305 - INFO - MainWindow init
+2025-01-21 17:01:07,306 - INFO - Initialized Log
+2025-01-21 17:01:16,061 - INFO - MainWindow init
+2025-01-21 17:01:16,062 - INFO - Initialized Log
+2025-01-21 17:01:28,141 - INFO - MainWindow init
+2025-01-21 17:01:28,142 - INFO - Initialized Log
+2025-01-21 17:02:03,935 - INFO - MainWindow init
+2025-01-21 17:02:03,936 - INFO - Initialized Log
+2025-01-21 17:05:22,695 - INFO - MainWindow init
+2025-01-21 17:05:22,696 - INFO - Initialized Log
+2025-01-21 17:12:38,902 - INFO - MainWindow init
+2025-01-21 17:12:38,903 - INFO - Initialized Log
+2025-01-21 17:14:45,617 - INFO - MainWindow init
+2025-01-21 17:14:45,617 - INFO - Initialized Log
+2025-01-21 17:24:51,433 - INFO - MainWindow init
+2025-01-21 17:24:51,434 - INFO - Initialized Log
+2025-01-21 17:27:20,589 - INFO - MainWindow init
+2025-01-21 17:27:20,589 - INFO - Initialized Log
+2025-01-21 17:28:34,187 - INFO - MainWindow init
+2025-01-21 17:28:34,188 - INFO - Initialized Log
+2025-01-21 17:29:40,177 - INFO - MainWindow init
+2025-01-21 17:29:40,178 - INFO - Initialized Log
+2025-01-21 17:36:21,030 - INFO - MainWindow init
+2025-01-21 17:36:21,031 - INFO - Initialized Log
+2025-01-21 17:37:04,612 - INFO - MainWindow init
+2025-01-21 17:37:04,612 - INFO - Initialized Log
+2025-01-21 17:43:01,126 - INFO - Initialized Log
+2025-01-21 17:43:34,854 - INFO - Initialized Log
+2025-01-21 17:43:58,974 - INFO - Initialized Log
+2025-01-21 17:45:49,487 - INFO - Initialized Log
+2025-01-21 17:53:57,479 - INFO - Initialized Log
+2025-01-21 17:54:21,712 - INFO - Initialized Log
+2025-01-21 18:00:16,773 - INFO - Initialized Log
+2025-01-21 18:00:32,930 - INFO - Initialized Log
+2025-01-21 18:00:55,502 - INFO - Initialized Log
+2025-01-21 18:01:48,891 - INFO - Initialized Log
+2025-01-21 18:02:38,724 - INFO - Initialized Log
+2025-01-21 18:11:24,864 - INFO - Initialized Log
+2025-01-21 18:11:46,123 - INFO - Initialized Log
+2025-01-21 18:11:53,338 - INFO - Initialized Log
+2025-01-21 18:12:40,777 - INFO - Initialized Log
+2025-01-21 19:12:46,168 - INFO - Initialized Log
+2025-01-21 19:13:33,286 - INFO - Initialized Log
+2025-01-21 19:21:09,156 - INFO - Initialized Log
+2025-01-21 19:21:47,952 - INFO - current select player index: 0
+player not running
+check player state fail: result=-2
+
+2025-01-21 19:22:39,138 - INFO - Initialized Log
+2025-01-21 19:24:17,035 - INFO - Initialized Log
+2025-01-21 19:24:40,321 - INFO - Initialized Log
+2025-01-21 19:24:43,273 - INFO - current select player index: 0
+player launch: result=0
+
+2025-01-21 19:25:09,995 - INFO - current select player index: 0
+check player state: state=start_finished
+
+2025-01-21 21:24:57,340 - INFO - current select player index: 0
+player launch: result=0
+
+2025-01-21 21:25:16,581 - INFO - current select player index: 0
+player not running
+check player state fail: result=-2
+
+2025-01-21 21:25:17,797 - INFO - current select player index: 0
+player not running
+check player state fail: result=-2
+
+2025-01-21 21:25:20,059 - INFO - current select player index: 0
+player not running
+check player state fail: result=-2
+
+2025-01-22 04:36:06,627 - INFO - Initialized Log
+2025-01-22 04:36:26,290 - INFO - current select player index: 0
+player launch: result=0
+
+2025-01-22 04:46:33,632 - INFO - Initialized Log
+2025-01-22 04:50:55,200 - INFO - Initialized Log
+2025-01-22 04:53:27,160 - INFO - Initialized Log
+2025-01-22 04:54:28,104 - INFO - Initialized Log
+2025-01-22 04:56:49,237 - INFO - Initialized Log
+2025-01-22 04:58:18,438 - INFO - Initialized Log
+2025-01-22 04:59:36,532 - INFO - Initialized Log
+2025-01-22 05:07:02,647 - INFO - Initialized Log
+2025-01-22 05:19:52,806 - INFO - Initialized Log
+2025-01-22 05:21:37,544 - INFO - Initialized Log
+2025-01-22 05:23:05,229 - INFO - Initialized Log
+2025-01-22 05:28:12,178 - INFO - Initialized Log
+2025-01-22 05:30:40,594 - INFO - Initialized Log
+2025-01-22 05:41:20,377 - INFO - Initialized Log
+2025-01-22 05:44:13,868 - INFO - Initialized Log
+2025-01-22 05:44:38,020 - INFO - Initialized Log
+2025-01-22 05:45:36,726 - INFO - Initialized Log
+2025-01-22 05:46:09,834 - INFO - Initialized Log
+2025-01-22 05:46:21,751 - INFO - Initialized Log
+2025-01-22 05:46:45,075 - INFO - Initialized Log
+2025-01-22 05:46:51,421 - INFO - Initialized Log
+2025-01-22 12:38:07,638 - INFO - Initialized Log
+2025-01-22 17:26:17,431 - INFO - Initialized Log
+2025-01-22 17:37:33,661 - INFO - Initialized Log
+2025-01-22 17:37:59,749 - INFO - Initialized Log
+2025-01-22 17:44:17,389 - INFO - Initialized Log
+2025-01-22 17:46:31,768 - INFO - Initialized Log
+2025-01-22 17:47:40,904 - INFO - Initialized Log
+2025-01-22 17:47:49,561 - INFO - Initialized Log
+2025-01-22 17:52:28,075 - INFO - Initialized Log
+2025-01-22 17:52:56,267 - INFO - Initialized Log
+2025-01-22 17:57:14,048 - INFO - Initialized Log
+2025-01-22 17:57:18,995 - INFO - current select player index: 0
+player launch: result=0
+
+2025-01-22 17:57:28,791 - INFO - current select player index: 0
+player launch: result=0
+
+2025-01-22 18:12:03,873 - INFO - Initialized Log

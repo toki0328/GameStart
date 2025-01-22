@@ -1,0 +1,5 @@
+#Directoties
+.vscode/
+.venv/
+__pycache__/
+*.pyc

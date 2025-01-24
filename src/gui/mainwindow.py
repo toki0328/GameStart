@@ -6,7 +6,7 @@ from PySide6.QtWidgets import QWidget, QFrame, QVBoxLayout, QHBoxLayout, QLabel,
 from PySide6.QtCore import Qt, QUrl, QEvent
 from PySide6.QtGui import QIcon, QColor, QDesktopServices
 from qfluentwidgets import (FluentWindow, MSFluentWindow, PushButton, FluentTitleBar, FluentIcon as FIF, NavigationItemPosition, MessageBox, CardWidget,
-                            IconWidget, BodyLabel, CaptionLabel, TransparentToolButton, ComboBox)
+                            IconWidget, BodyLabel, CaptionLabel, TransparentToolButton, ComboBox, SingleDirectionScrollArea)
 from qframelesswindow.webengine import FramelessWebEngineView
 
 from core.logger import logger
@@ -19,7 +19,7 @@ class AppCard(CardWidget):
         super().__init__(parent)
         self.iconWidget = IconWidget(icon)
         self.titleLabel = BodyLabel(title, self)
-        self.contentLabel = CaptionLabel(content, self)
+        # self.contentLabel = CaptionLabel(content, self)
         self.openButton = PushButton(self.tr('启动'), self)
         self.closeButton = PushButton(self.tr('关闭'), self)
         # self.moreButton = TransparentToolButton(FIF.MORE, self)
@@ -29,7 +29,7 @@ class AppCard(CardWidget):
 
         self.setFixedHeight(73)
         self.iconWidget.setFixedSize(48, 48)
-        self.contentLabel.setTextColor("#606060", "#d2d2d2")
+        # self.contentLabel.setTextColor("#606060", "#d2d2d2")
         self.openButton.setFixedWidth(60)
         self.closeButton.setFixedWidth(60)
 
@@ -40,7 +40,7 @@ class AppCard(CardWidget):
         self.vBoxLayout.setContentsMargins(0, 0, 0, 0)
         self.vBoxLayout.setSpacing(0)
         self.vBoxLayout.addWidget(self.titleLabel, 0, Qt.AlignVCenter)
-        self.vBoxLayout.addWidget(self.contentLabel, 0, Qt.AlignVCenter)
+        # self.vBoxLayout.addWidget(self.contentLabel, 0, Qt.AlignVCenter)
         self.vBoxLayout.setAlignment(Qt.AlignVCenter)
         self.hBoxLayout.addLayout(self.vBoxLayout)
 
@@ -60,22 +60,81 @@ class HomeInterface(QWidget):
         self.initUI()
 
     def initUI(self) -> None:
-
-        iconPath = os.path.dirname(mumuApi.getMumuManagerPath()) + "/MuMuPlayer.ico"
+        mumuIconPath = os.path.dirname(mumuApi.getMumuManagerPath()) + "/MuMuPlayer.ico"
         card = AppCard(
-            icon = iconPath,
+            icon = mumuIconPath,
             title = self.tr('Mumu模拟器'),
             content = self.tr('点击启动模拟器'),
         )
         card.setBorderRadius(8)
 
-        self.layout = QVBoxLayout(self)
-        self.layout.addWidget(card)
+        card2 = AppCard(
+            icon = mumuIconPath,
+            title = self.tr('Mumu模拟器'),
+            content = self.tr('点击启动模拟器'),
+        )
+
+        card3 = AppCard(
+            icon = mumuIconPath,
+            title = self.tr('Mumu模拟器'),
+            content = self.tr('点击启动模拟器'),
+        )
+
+        card4 = AppCard(
+            icon = mumuIconPath,
+            title = self.tr('Mumu模拟器'),
+            content = self.tr('点击启动模拟器'),
+        )
+
+        card5 = AppCard(
+            icon = mumuIconPath,
+            title = self.tr('Mumu模拟器'),
+            content = self.tr('点击启动模拟器'),
+        )
+
+        card6 = AppCard(
+            icon = mumuIconPath,
+            title = self.tr('Mumu模拟器'),
+            content = self.tr('点击启动模拟器'),
+        )
+
+        card7 = AppCard(
+            icon = mumuIconPath,
+            title = self.tr('Mumu模拟器'),
+            content = self.tr('点击启动模拟器'),
+        )
+
+        card8 = AppCard(
+            icon = mumuIconPath,
+            title = self.tr('Mumu模拟器'),
+            content = self.tr('点击启动模拟器'),
+        )
+        card9 = AppCard(
+            icon = mumuIconPath,
+            title = self.tr('Mumu模拟器'),
+            content = self.tr('点击启动模拟器'),
+        )
+
+        contentWidget = QWidget()
+        scrollArea = SingleDirectionScrollArea(orient = Qt.Vertical)
+        scrollArea.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
+        scrollArea.setWidget(contentWidget)
+
+        self.layout = QVBoxLayout(contentWidget)
         self.layout.setAlignment(Qt.AlignTop)
         self.layout.setContentsMargins(0, 0, 0, 0)
         self.layout.setSpacing(0)
-
-        self.setLayout(self.layout)
+        self.layout.addWidget(card)
+        self.layout.addWidget(card2)
+        self.layout.addWidget(card3)
+        self.layout.addWidget(card4)
+        self.layout.addWidget(card5)
+        self.layout.addWidget(card6)
+        self.layout.addWidget(card7)
+        self.layout.addWidget(card8)
+        self.layout.addWidget(card9)
+        contentWidget.setLayout(self.layout)
+        # self.setLayout(self.layout)
 
         card.openButton.clicked.connect(lambda: mumuApi.startMumu())
         card.closeButton.clicked.connect(lambda: mumuApi.closeMumu())

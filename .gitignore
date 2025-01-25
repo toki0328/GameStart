@@ -2,4 +2,8 @@
 .vscode/
 .venv/
 __pycache__/
+
+#Files
+config.json
+app.log
 *.pyc

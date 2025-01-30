@@ -2,11 +2,11 @@ import os
 import subprocess
 import threading
 
-from PySide6.QtWidgets import QWidget, QFrame, QVBoxLayout, QHBoxLayout, QLabel, QSizePolicy, QApplication
+from PySide6.QtWidgets import QWidget, QFrame, QVBoxLayout, QHBoxLayout, QLabel, QSizePolicy, QApplication, QScrollArea
 from PySide6.QtCore import Qt, QUrl, QEvent
 from PySide6.QtGui import QIcon, QColor, QDesktopServices
 from qfluentwidgets import (FluentWindow, MSFluentWindow, PushButton, FluentTitleBar, FluentIcon as FIF, NavigationItemPosition, MessageBox, CardWidget,
-                            IconWidget, BodyLabel, CaptionLabel, TransparentToolButton, ComboBox, SingleDirectionScrollArea)
+                            IconWidget, BodyLabel, CaptionLabel, TransparentToolButton, ComboBox, ScrollArea, ExpandLayout, SingleDirectionScrollArea)
 from qframelesswindow.webengine import FramelessWebEngineView
 
 from core.logger import logger
@@ -51,94 +51,92 @@ class AppCard(CardWidget):
 
         # self.moreButton.setFixedSize(32, 32)
 
-
 class HomeInterface(QWidget):
     def __init__(self, parent = None):
-        super(HomeInterface, self).__init__(parent)
+        super().__init__(parent)
         self.setObjectName("homeInterface")
 
         self.initUI()
 
     def initUI(self) -> None:
+
+        self.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
+
         mumuIconPath = os.path.dirname(mumuApi.getMumuManagerPath()) + "/MuMuPlayer.ico"
-        card = AppCard(
-            icon = mumuIconPath,
-            title = self.tr('Mumu模拟器'),
-            content = self.tr('点击启动模拟器'),
-        )
-        card.setBorderRadius(8)
-
-        card2 = AppCard(
-            icon = mumuIconPath,
-            title = self.tr('Mumu模拟器'),
-            content = self.tr('点击启动模拟器'),
-        )
-
-        card3 = AppCard(
-            icon = mumuIconPath,
-            title = self.tr('Mumu模拟器'),
-            content = self.tr('点击启动模拟器'),
-        )
-
-        card4 = AppCard(
-            icon = mumuIconPath,
-            title = self.tr('Mumu模拟器'),
-            content = self.tr('点击启动模拟器'),
-        )
-
-        card5 = AppCard(
-            icon = mumuIconPath,
-            title = self.tr('Mumu模拟器'),
-            content = self.tr('点击启动模拟器'),
-        )
-
-        card6 = AppCard(
-            icon = mumuIconPath,
-            title = self.tr('Mumu模拟器'),
-            content = self.tr('点击启动模拟器'),
-        )
-
-        card7 = AppCard(
-            icon = mumuIconPath,
-            title = self.tr('Mumu模拟器'),
-            content = self.tr('点击启动模拟器'),
-        )
-
-        card8 = AppCard(
-            icon = mumuIconPath,
-            title = self.tr('Mumu模拟器'),
-            content = self.tr('点击启动模拟器'),
-        )
-        card9 = AppCard(
-            icon = mumuIconPath,
-            title = self.tr('Mumu模拟器'),
-            content = self.tr('点击启动模拟器'),
-        )
-
+        maaIconPath = 'resource/images/maa_logo.png'
+        maaExePath = "C:\Dev\Scripts\MAA-v5.12.3-win-x64\MAA.exe"
+        
+        # 滚动区域
         contentWidget = QWidget()
-        scrollArea = SingleDirectionScrollArea(orient = Qt.Vertical)
+        contentWidget.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
+        contentLayout = QVBoxLayout(contentWidget)
+        contentLayout.setContentsMargins(0, 0, 0, 0)
+
+        # mumu模拟器
+        mumuCard = AppCard(
+            icon = mumuIconPath,
+            title = self.tr('Mumu模拟器'),
+            content = self.tr('点击启动模拟器'),
+        )
+        mumuCard.setBorderRadius(8)
+        mumuCard.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Fixed)
+        mumuCard.setFixedWidth(700)
+
+        # maa
+        maaCard = AppCard(
+            icon = maaIconPath,
+            title = self.tr('MAA'),
+            content = self.tr('点击启动MAA'),
+        )
+
+        arknightsCard = AppCard(
+            icon = 'resource/images/arknights_logo.png',
+            title = self.tr('明日方舟'),
+            content = self.tr('点击启动明日方舟'),
+        )
+
+        contentLayout.addWidget(mumuCard)
+        contentLayout.addWidget(maaCard)
+        contentLayout.addWidget(arknightsCard)
+        
+        scrollArea = ScrollArea(self)
+        scrollArea.setStyleSheet("background-color: transparent; border: none;")
         scrollArea.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
         scrollArea.setWidget(contentWidget)
 
-        self.layout = QVBoxLayout(contentWidget)
-        self.layout.setAlignment(Qt.AlignTop)
-        self.layout.setContentsMargins(0, 0, 0, 0)
-        self.layout.setSpacing(0)
-        self.layout.addWidget(card)
-        self.layout.addWidget(card2)
-        self.layout.addWidget(card3)
-        self.layout.addWidget(card4)
-        self.layout.addWidget(card5)
-        self.layout.addWidget(card6)
-        self.layout.addWidget(card7)
-        self.layout.addWidget(card8)
-        self.layout.addWidget(card9)
-        contentWidget.setLayout(self.layout)
-        # self.setLayout(self.layout)
-
-        card.openButton.clicked.connect(lambda: mumuApi.startMumu())
-        card.closeButton.clicked.connect(lambda: mumuApi.closeMumu())
+        mainLayout = QVBoxLayout()
+        mainLayout.addWidget(scrollArea)
+        self.setLayout(mainLayout)
         
+        mumuCard.openButton.clicked.connect(lambda: mumuApi.startMumu())
+        mumuCard.closeButton.clicked.connect(lambda: mumuApi.closeMumu())
+
+        maaCard.openButton.clicked.connect(lambda: 
+            subprocess.Popen(maaExePath, shell = True, creationflags = subprocess.CREATE_NEW_CONSOLE))
+        maaCard.closeButton.clicked.connect(lambda:
+            subprocess.Popen('taskkill /f /im MAA.exe', shell = True, creationflags = subprocess.CREATE_NEW_CONSOLE))
+        
+        arknightsCard.openButton.clicked.connect(lambda: mumuApi.startApp('com.hypergryph.arknights.bilibili'))
+        arknightsCard.closeButton.clicked.connect(lambda: mumuApi.stopApp('com.hypergryph.arknights.bilibili'))
+      
+
+class SettingsInterface(QWidget):
+    def __init__(self, parent = None):
+        super().__init__(parent)
+        self.setObjectName("settingsInterface")
+
+        self.initUI()
+
+    def initUI(self) -> None:
+        mainLayout = QVBoxLayout()
+        mainLayout.setContentsMargins(0, 0, 0, 0)
+
+        btn = PushButton(self.tr('连接Adb'))
+        mainLayout.addWidget(btn)
+
+        self.setLayout(mainLayout)
+
+        btn.clicked.connect(lambda: mumuApi.detectAdbAddr())
 
 class MainWindow(FluentWindow):
 
@@ -147,9 +145,8 @@ class MainWindow(FluentWindow):
         self.initUI()
 
     def initUI(self) -> None:
-        self.setWindowTitle(self.tr("Launcher"))
-        self.resize(800, 600)
-        self.setMinimumSize(800, 600)
+        self.setWindowTitle(self.tr("启动器"))
+        self.setFixedSize(800, 600)
         self.setWindowIcon(QIcon('resource/images/app_icon.png'))
         self.navigationInterface.setExpandWidth(100)
 
@@ -167,6 +164,9 @@ class MainWindow(FluentWindow):
         testInterface = QWidget()
         testInterface.setObjectName("testInterface")
         self.addSubInterface(testInterface, FIF.CHAT, 'Test')
+
+        settingsInterface = SettingsInterface()
+        self.addSubInterface(settingsInterface, FIF.SETTING, '设置')
 
         self.navigationInterface.addItem(
             routeKey = 'Help',
@@ -207,4 +207,3 @@ class MainWindow(FluentWindow):
 
         if w.exec():
             QDesktopServices.openUrl(QUrl("https://www.bilibili.com/video/BV1GJ411x7h7/?spm_id_from=333.337.search-card.all.click"))
-

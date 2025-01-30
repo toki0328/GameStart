@@ -2,8 +2,9 @@
 .vscode/
 .venv/
 __pycache__/
+config/
+log/
 
 #Files
-config.json
-app.log
 *.pyc
+*.log

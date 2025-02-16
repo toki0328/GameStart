@@ -4,7 +4,14 @@
 __pycache__/
 config/
 log/
+build/
+dist/
 
 #Files
 *.pyc
 *.log
+crop_to_circle.py
+install.exe
+main.exe
+install.spec
+main.spec

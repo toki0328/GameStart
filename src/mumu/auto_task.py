@@ -2,9 +2,8 @@ import subprocess
 import platform
 import os
 import re
-import json
 
-m_ConfigPath = "config/config.json"
+from core.config import config
 
 # 自动检测相关
 # 自动查找mumu manager路径
@@ -19,23 +18,33 @@ def autoFindMumuManagerPath():
         mumuManagerPath = os.path.join(iconDirPath, "MuMuManager.exe")
         return mumuManagerPath
     
+
 def getMumuManagerPath() -> str:
     """
     获取mumu manager路径
     """
-    config = json.load(open(m_ConfigPath, "r", encoding="utf-8"))
+    # if config['mumuManagerPath'] == "": 
+    #     config['mumuManagerPath'] = autoFindMumuManagerPath()
+    #     json.dump(config, open(m_ConfigPath, "w", encoding="utf-8"), indent=4)
+    #     return autoFindMumuManagerPath()
+    # else:
+    #     if os.path.exists(config['mumuManagerPath']):
+    #         return config['mumuManagerPath']
+    #     else:
+    #         config['mumuManagerPath'] = autoFindMumuManagerPath()
+    #         json.dump(config, open(m_ConfigPath, "w", encoding="utf-8"), indent=4)
+    #         return autoFindMumuManagerPath()
 
-    if config['mumuManagerPath'] == "": 
-        config['mumuManagerPath'] = autoFindMumuManagerPath()
-        json.dump(config, open(m_ConfigPath, "w", encoding="utf-8"), indent=4)
+    if config.get('mumuManagerPath') == "":
+        config.set('mumuManagerPath', autoFindMumuManagerPath())
         return autoFindMumuManagerPath()
     else:
-        if os.path.exists(config['mumuManagerPath']):
-            return config['mumuManagerPath']
+        if os.path.exists(config.get('mumuManagerPath')):
+            return config.get('mumuManagerPath')
         else:
-            config['mumuManagerPath'] = autoFindMumuManagerPath()
-            json.dump(config, open(m_ConfigPath, "w", encoding="utf-8"), indent=4)
+            config.set('mumuManagerPath', autoFindMumuManagerPath())
             return autoFindMumuManagerPath()
+
 
 # ADB 检测
 def findMumuAdbPorts():

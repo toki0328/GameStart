@@ -5,12 +5,22 @@ import PySide6.QtCore
 
 from PySide6.QtWidgets import QApplication
 from PySide6.QtGui import QFontDatabase, QFont
+from PySide6.QtCore import QCoreApplication
 
 from gui.mainwindow import MainWindow
 from core.logger import logger
 
 
+def setQtPluginPath():
+    if getattr(sys, 'frozen', False):
+        # 打包后的路径
+        base_path = sys._MEIPASS
+        plugin_path = os.path.join(base_path, 'PySide6', 'plugins')
+        QCoreApplication.addLibraryPath(plugin_path)
+
 def main():
+
+    setQtPluginPath()
 
     if PySide6.QtCore.__version_info__ >= (6, 0, 0):
         os.environ["QT_SCALE_FACTOR"] = "1"

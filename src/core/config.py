@@ -1,4 +1,12 @@
 import json
+import os
+
+path = "config/config.json"
+if not os.path.exists(path):
+    os.makedirs(os.path.dirname(path), exist_ok=True)
+    with open(path, 'w', encoding='utf-8') as f:
+        f.write('{}')
+        f.close()
 
 class Config:
     def __init__(self):

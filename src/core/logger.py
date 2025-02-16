@@ -1,7 +1,12 @@
 import logging
 import threading
+import os
 
 logPath = 'log/app.log'
+if not os.path.exists(os.path.dirname(logPath)):
+    os.makedirs(os.path.dirname(logPath))
+    with open(logPath, 'w') as f:
+        pass
 
 # class Logger:
 #     _instance_lock = threading.Lock()

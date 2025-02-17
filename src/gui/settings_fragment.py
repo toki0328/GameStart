@@ -76,6 +76,8 @@ class SettingsFragment(QWidget):
             icon = FIF.TAG,
             title=self.tr("启动时自动打开脚本")
         )
+        if config.get('withOpenScript') == "":
+            config.set('withOpenScript', False)
         withOpenScriptCard.switchBtn.setChecked(config.get('withOpenScript'))
 
         detectAdbCard = SettingsCard(

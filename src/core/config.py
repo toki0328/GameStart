@@ -13,6 +13,8 @@ class Config:
         self.config = json.load(open('config/config.json', "r", encoding="utf-8"))
 
     def get(self, key):
+        if key not in self.config:
+            self.set(key, '')
         return self.config.get(key)
     
     def set(self, key, value):

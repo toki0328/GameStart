@@ -56,9 +56,12 @@ class AppFragment(QFrame):
 
         self.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
 
-        mumuIconPath = os.path.dirname(mumuApi.getMumuManagerPath()) + "/MuMuPlayer.ico"
+        if os.path.exists(mumuApi.getMumuManagerPath()):
+            mumuIconPath = os.path.dirname(mumuApi.getMumuManagerPath()) + "/MuMuPlayer.ico"
+        else:
+            mumuIconPath = ''
         maaIconPath = 'resource/images/maa_logo.png'
-        maaExePath = "C:\Dev\Scripts\MAA-v5.12.3-win-x64\MAA.exe"
+        maaExePath = "C:\Dev\MAA\MAA.exe"
         
         # 滚动区域
         contentWidget = QWidget()

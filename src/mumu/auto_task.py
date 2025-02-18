@@ -10,7 +10,11 @@ from core.config import config
 def autoFindMumuManagerPath():
     if os.name == 'nt':
         import winreg
-        key = winreg.OpenKey(winreg.HKEY_LOCAL_MACHINE, r"SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\MuMuPlayer-12.0")
+        try:
+            key = winreg.OpenKey(winreg.HKEY_LOCAL_MACHINE, r"SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\MuMuPlayer-12.0")
+        except FileNotFoundError as e:
+            print("MuMuPlayer-12.0 is not installed.")
+            return ""
         # _ 忽略值的类型
         iconPath, _ = winreg.QueryValueEx(key, "DisplayIcon")
         iconPath = iconPath.replace('"', '')
@@ -35,19 +39,21 @@ def getMumuManagerPath() -> str:
     #         json.dump(config, open(m_ConfigPath, "w", encoding="utf-8"), indent=4)
     #         return autoFindMumuManagerPath()
 
+    mumuManagerPath = autoFindMumuManagerPath()
+
     if config.get('mumuManagerPath') == "":
-        config.set('mumuManagerPath', autoFindMumuManagerPath())
-        return autoFindMumuManagerPath()
+        config.set('mumuManagerPath', mumuManagerPath)
+        return mumuManagerPath
     else:
         if os.path.exists(config.get('mumuManagerPath')):
             return config.get('mumuManagerPath')
         else:
-            config.set('mumuManagerPath', autoFindMumuManagerPath())
-            return autoFindMumuManagerPath()
+            config.set('mumuManagerPath', mumuManagerPath)
+            return mumuManagerPath
 
 
 # ADB 检测
-def findMumuAdbPorts():
+def findMumuAdbPorts() -> list:
     """通过进程检测或网络端口扫描获取 MuMu 模拟器的 ADB 端口"""
     """Mumu12 主进程名为 MuMuVMMHeadless.exe, Mumu11 主进程名为 NemuHeadless.exe"""
     system = platform.system()
@@ -96,8 +102,12 @@ def findMumuAdbPorts():
     return adb_ports
 
 
-def connectMumuAdb(port):
+def connectMumuAdb(port) -> tuple[bool, int]:
     """尝试连接指定 ADB 端口"""
+    if not os.path.exists(getMumuManagerPath()):
+        print("mumu模拟器未安装或路径错误")
+        return False, port
+    
     adbPath = os.path.dirname(getMumuManagerPath()) + "\\adb.exe"
     cmd = adbPath + f" connect 127.0.0.1:{port}"
     result = subprocess.run(
@@ -131,6 +141,10 @@ def autoDetectMumu():
     # 验证最终连接设备
     if success_ports:
         print("\n连接成功的设备:")
+
+        if not os.path.exists(getMumuManagerPath()):
+            print("mumu模拟器未安装或路径错误")
+            return
 
         adbPath = os.path.dirname(getMumuManagerPath()) + "\\adb.exe"
         devices = subprocess.run(adbPath + " devices", capture_output = True, text=True)
